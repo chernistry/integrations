@@ -8,6 +8,8 @@ permissions:
   pull-requests: write
 jobs:
   sync:
+    # Forks have no use for the refresh PR and usually cannot open one with GITHUB_TOKEN.
+    if: github.repository == 'agentrust-io/integrations'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
